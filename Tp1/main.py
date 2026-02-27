@@ -6,7 +6,6 @@ from PyQt5 import QtWidgets, QtGui, QtCore
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtWidgets import QFileDialog
 
-# Importation de ton interface
 from design import Ui_MainWindow 
 
 class ComputerVisionApp(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -17,11 +16,10 @@ class ComputerVisionApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.image = None
         self.processed_gray = None
 
-        # --- Connexions des Boutons ---
         self.browseBtn.clicked.connect(self.charger_image)
-        self.displayRChan.clicked.connect(lambda: self.extraire_canal(2)) # Rouge (Index 2 en BGR)
-        self.displayGChan.clicked.connect(lambda: self.extraire_canal(1)) # Vert (Index 1 en BGR)
-        self.displayBChan.clicked.connect(lambda: self.extraire_canal(0)) # Bleu (Index 0 en BGR)
+        self.displayRChan.clicked.connect(lambda: self.extraire_canal(2)) 
+        self.displayGChan.clicked.connect(lambda: self.extraire_canal(1)) 
+        self.displayBChan.clicked.connect(lambda: self.extraire_canal(0)) 
         self.showHist.clicked.connect(self.generer_histogramme_couleur)
         
         self.DisplayGrayImg.clicked.connect(self.appliquer_transformation)
@@ -30,7 +28,6 @@ class ComputerVisionApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def charger_image(self):
         path, _ = QFileDialog.getOpenFileName(self, 'Ouvrir Image', '', 'Images (*.png *.jpg *.bmp)')
         if path:
-            # Lecture robuste pour supporter les accents (Windows)
             stream = open(path, "rb")
             bytes = bytearray(stream.read())
             numpyarray = np.asarray(bytes, dtype=np.uint8)
@@ -45,7 +42,6 @@ class ComputerVisionApp(QtWidgets.QMainWindow, Ui_MainWindow):
         """Affiche une image OpenCV dans un QLabel PyQt5"""
         if len(img.shape) == 3:
             h, w, ch = img.shape
-            # Conversion BGR vers RGB pour un affichage correct
             img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             qimg = QImage(img_rgb.data, w, h, ch * w, QImage.Format_RGB888)
         else:
@@ -59,7 +55,6 @@ class ComputerVisionApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.image is not None:
             res = np.zeros_like(self.image)
             res[:, :, canal_idx] = self.image[:, :, canal_idx]
-            # Mapping des labels selon l'index
             labels = {2: self.rchan, 1: self.gchan, 0: self.bchan}
             self.afficher(res, labels[canal_idx])
 
