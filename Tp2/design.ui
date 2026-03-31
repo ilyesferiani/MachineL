@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1160</width>
+    <height>760</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_main">
+    <item>
+     <widget class="QGroupBox" name="groupBox_1">
+      <property name="title">
+       <string>Image Originale</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_1">
+       <item row="0" column="0">
+        <widget class="QPushButton" name="Browse">
+         <property name="minimumSize">
+          <size><width>120</width><height>35</height></size>
+         </property>
+         <property name="text">
+          <string>Parcourir</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="ShowHistogram">
+         <property name="minimumSize">
+          <size><width>120</width><height>35</height></size>
+         </property>
+         <property name="text">
+          <string>Afficher Histogramme</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="label_1">
+         <property name="text">
+          <string>Image Originale</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Histogramme de l'image originale</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" rowspan="2">
+        <widget class="QWidget" name="OriginalImg" native="true">
+         <property name="minimumSize">
+          <size><width>220</width><height>180</height></size>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_OriginalImg"/>
+        </widget>
+       </item>
+       <item row="1" column="2" rowspan="2">
+        <widget class="QWidget" name="OriginalHist" native="true">
+         <property name="minimumSize">
+          <size><width>500</width><height>180</height></size>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_OriginalHist"/>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="title">
+       <string>Égalisation d'histogramme</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QPushButton" name="Apply">
+         <property name="minimumSize">
+          <size><width>120</width><height>35</height></size>
+         </property>
+         <property name="text">
+          <string>Appliquer</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Image Égalisée</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Histogramme de l'image égalisée</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QWidget" name="EqualizedImg" native="true">
+         <property name="minimumSize">
+          <size><width>220</width><height>180</height></size>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_EqualizedImg"/>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QWidget" name="EqualizedHist" native="true">
+         <property name="minimumSize">
+          <size><width>500</width><height>180</height></size>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_EqualizedHist"/>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_bottom">
+      <item>
+       <widget class="QGroupBox" name="groupBox_3">
+        <property name="title">
+         <string>Seuillage</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="0" column="0">
+          <widget class="QRadioButton" name="BinaryThreshold">
+           <property name="text">
+            <string>Seuillage binaire</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QRadioButton" name="OtsuThreshold">
+           <property name="text">
+            <string>Seuillage d'Otsu</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QPushButton" name="Validate_1">
+           <property name="minimumSize">
+            <size><width>100</width><height>35</height></size>
+           </property>
+           <property name="text">
+            <string>Valider</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>Image Seuillée</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" rowspan="2">
+          <widget class="QWidget" name="ThresholdingImg" native="true">
+           <property name="minimumSize">
+            <size><width>180</width><height>180</height></size>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_ThresholdingImg"/>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_4">
+        <property name="title">
+         <string>Filtrage</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="0">
+          <widget class="QRadioButton" name="GaussianFilter">
+           <property name="text">
+            <string>Filtre Gaussien</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QRadioButton" name="MeanFilter">
+           <property name="text">
+            <string>Filtre moyenneur</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QRadioButton" name="MedianFilter">
+           <property name="text">
+            <string>Filtre médian</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QPushButton" name="Validate_2">
+           <property name="minimumSize">
+            <size><width>100</width><height>35</height></size>
+           </property>
+           <property name="text">
+            <string>Valider</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>Image Filtrée</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" rowspan="3">
+          <widget class="QWidget" name="FilteredImg" native="true">
+           <property name="minimumSize">
+            <size><width>180</width><height>180</height></size>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_FilteredImg"/>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_5">
+        <property name="title">
+         <string>Opérations géométriques</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_5">
+         <item row="0" column="0">
+          <widget class="QRadioButton" name="Rotation">
+           <property name="text">
+            <string>Rotation</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QRadioButton" name="Extraction">
+           <property name="text">
+            <string>Extraction</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QRadioButton" name="Agrandissement">
+           <property name="text">
+            <string>Agrandissement</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QPushButton" name="Validate_3">
+           <property name="minimumSize">
+            <size><width>100</width><height>35</height></size>
+           </property>
+           <property name="text">
+            <string>Valider</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>Image Augmentée</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" rowspan="3">
+          <widget class="QWidget" name="AugmentedImg" native="true">
+           <property name="minimumSize">
+            <size><width>180</width><height>180</height></size>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_AugmentedImg"/>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1160</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
