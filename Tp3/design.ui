@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>850</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Détection des contours</string>
+  </property>
+
+  <widget class="QWidget" name="centralwidget">
+
+   <widget class="QGroupBox" name="groupBox1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>1180</width>
+      <height>350</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Contours à partir de la dérivée première</string>
+    </property>
+
+    <widget class="QPushButton" name="parcourir">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>150</y>
+       <width>100</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Parcourir</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="GrayImg">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>80</y>
+       <width>180</width>
+       <height>180</height>
+      </rect>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="labelGray">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>50</y>
+       <width>200</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Image en niveaux de gris</string>
+     </property>
+    </widget>
+
+    <widget class="QGroupBox" name="groupBoxFilter">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>50</y>
+       <width>350</width>
+       <height>250</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Filtres Prewitt/Sobel</string>
+     </property>
+
+     <widget class="QRadioButton" name="fprewitt">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>60</y>
+        <width>150</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Filtre Prewitt</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+
+     <widget class="QRadioButton" name="fsobel">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>90</y>
+        <width>150</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Filtre Sobel</string>
+      </property>
+     </widget>
+
+     <widget class="QPushButton" name="valider1">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>140</y>
+        <width>100</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Valider</string>
+      </property>
+     </widget>
+
+     <widget class="QLabel" name="FilteredImg">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>50</y>
+        <width>180</width>
+        <height>180</height>
+       </rect>
+     </property>
+     </widget>
+
+     <widget class="QLabel" name="labelContour">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>20</y>
+        <width>200</width>
+        <height>20</height>
+       </rect>
+     </property>
+     <property name="text">
+      <string>Image Contours</string>
+     </property>
+     </widget>
+
+    </widget>
+
+    <widget class="QGroupBox" name="groupBoxThreshold">
+     <property name="geometry">
+      <rect>
+       <x>740</x>
+       <y>50</y>
+       <width>400</width>
+       <height>250</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Seuillage (à partir du Gradient)</string>
+     </property>
+
+     <widget class="QLabel" name="labelS1">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>60</y>
+        <width>80</width>
+        <height>20</height>
+       </rect>
+     </property>
+     <property name="text">
+      <string>Seuil 1</string>
+     </property>
+     </widget>
+
+     <widget class="QTextEdit" name="s1">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>55</y>
+        <width>70</width>
+        <height>30</height>
+       </rect>
+     </property>
+     </widget>
+
+     <widget class="QLabel" name="labelS2">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>100</y>
+        <width>80</width>
+        <height>20</height>
+       </rect>
+     </property>
+     <property name="text">
+      <string>Seuil 2</string>
+     </property>
+     </widget>
+
+     <widget class="QTextEdit" name="s2">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>95</y>
+        <width>70</width>
+        <height>30</height>
+       </rect>
+     </property>
+     </widget>
+
+     <widget class="QPushButton" name="valider2">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>150</y>
+        <width>100</width>
+        <height>30</height>
+       </rect>
+     </property>
+     <property name="text">
+      <string>Valider</string>
+     </property>
+     </widget>
+
+     <widget class="QLabel" name="SegmentedImg">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>50</y>
+        <width>180</width>
+        <height>180</height>
+       </rect>
+     </property>
+     </widget>
+
+     <widget class="QLabel" name="labelSegment">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>20</y>
+        <width>200</width>
+        <height>20</height>
+       </rect>
+     </property>
+     <property name="text">
+      <string>Image segmentée</string>
+     </property>
+     </widget>
+
+    </widget>
+
+   </widget>
+
+   <widget class="QGroupBox" name="groupBox2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>380</y>
+      <width>1180</width>
+      <height>400</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Contours à partir de la dérivée seconde</string>
+    </property>
+
+    <widget class="QLabel" name="LaplacienImg">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>100</y>
+       <width>200</width>
+       <height>200</height>
+      </rect>
+     </property>
+    </widget>
+
+    <widget class="QPushButton" name="applaplacien">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>320</y>
+       <width>180</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Appliquer le Laplacien</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="LoGImg">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>100</y>
+       <width>200</width>
+       <height>200</height>
+      </rect>
+     </property>
+    </widget>
+
+    <widget class="QPushButton" name="applog">
+     <property name="geometry">
+      <rect>
+       <x>490</x>
+       <y>320</y>
+       <width>180</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Appliquer le LoG</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="CannyImg">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>100</y>
+       <width>200</width>
+       <height>200</height>
+      </rect>
+     </property>
+    </widget>
+
+    <widget class="QPushButton" name="appcanny">
+     <property name="geometry">
+      <rect>
+       <x>850</x>
+       <y>320</y>
+       <width>180</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Appliquer le Canny</string>
+     </property>
+    </widget>
+
+   </widget>
+
+  </widget>
+
+  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QStatusBar" name="statusbar"/>
+
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
