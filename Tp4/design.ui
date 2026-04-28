@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>760</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+
+  <widget class="QWidget" name="centralwidget">
+
+   <widget class="QGroupBox" name="groupBox_traitement_son">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>980</width>
+      <height>390</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Traitement du son numérique</string>
+    </property>
+
+    <widget class="QGroupBox" name="groupBox_analyse_audio">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>25</y>
+       <width>950</width>
+       <height>115</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Analyse du signal audio</string>
+     </property>
+
+     <widget class="QPushButton" name="btn_load_wav">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>55</y>
+        <width>145</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Charger le fichier .wav</string>
+      </property>
+     </widget>
+
+     <widget class="QLabel" name="title_audio_features">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>20</y>
+        <width>130</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Caractéristiques</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+
+     <widget class="QTextEdit" name="audio_features">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>40</y>
+        <width>170</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+     </widget>
+
+     <widget class="QLabel" name="title_signal_temporel">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>20</y>
+        <width>130</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Signal temporel</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+
+     <widget class="QLabel" name="label_signal_temporel">
+      <property name="geometry">
+       <rect>
+        <x>365</x>
+        <y>40</y>
+        <width>565</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+
+    <widget class="QGroupBox" name="groupBox_echantillonnage">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>145</y>
+       <width>950</width>
+       <height>110</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Échantillonnage</string>
+     </property>
+
+     <widget class="QRadioButton" name="radio_fe2">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>25</y>
+        <width>80</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Fe / 2</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+
+     <widget class="QRadioButton" name="radio_fe4">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>49</y>
+        <width>80</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Fe / 4</string>
+      </property>
+     </widget>
+
+     <widget class="QRadioButton" name="radio_fe8">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>73</y>
+        <width>80</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Fe / 8</string>
+      </property>
+     </widget>
+
+     <widget class="QPushButton" name="btn_validate_resample">
+      <property name="geometry">
+       <rect>
+        <x>95</x>
+        <y>73</y>
+        <width>75</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Valider</string>
+      </property>
+     </widget>
+
+     <widget class="QLabel" name="title_signal_echantillonne">
+      <property name="geometry">
+       <rect>
+        <x>515</x>
+        <y>15</y>
+        <width>150</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Signal échantillonné</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+
+     <widget class="QLabel" name="label_signal_echantillonne">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>35</y>
+        <width>740</width>
+        <height>65</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+
+    <widget class="QGroupBox" name="groupBox_compression_audio">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>260</y>
+       <width>950</width>
+       <height>115</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Compression</string>
+     </property>
+
+     <widget class="QPushButton" name="btn_compress_audio">
+      <property name="geometry">
+       <rect>
+        <x>55</x>
+        <y>55</y>
+        <width>100</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Compresser</string>
+      </property>
+     </widget>
+
+     <widget class="QLabel" name="title_spectre">
+      <property name="geometry">
+       <rect>
+        <x>535</x>
+        <y>15</y>
+        <width>120</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Spectre du signal</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+
+     <widget class="QLabel" name="label_spectre">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>35</y>
+        <width>740</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+
+   <widget class="QGroupBox" name="groupBox_traitement_video">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>410</y>
+      <width>980</width>
+      <height>300</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Traitement de la vidéo numérique</string>
+    </property>
+
+    <widget class="QGroupBox" name="groupBox_analyse_video">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>25</y>
+       <width>950</width>
+       <height>110</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Analyse de vidéo</string>
+     </property>
+
+     <widget class="QPushButton" name="btn_load_video">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>55</y>
+        <width>145</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Charger la vidéo .avi</string>
+      </property>
+     </widget>
+
+     <widget class="QLabel" name="title_video_features">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>20</y>
+        <width>130</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Caractéristiques</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+
+     <widget class="QTextEdit" name="video_features">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>40</y>
+        <width>170</width>
+        <height>65</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+     </widget>
+
+     <widget class="QLabel" name="title_video_preview">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>20</y>
+        <width>170</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Aperçu vidéo (trames)</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+
+     <widget class="QLabel" name="label_video_preview">
+      <property name="geometry">
+       <rect>
+        <x>365</x>
+        <y>40</y>
+        <width>565</width>
+        <height>65</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+
+    <widget class="QGroupBox" name="groupBox_compression_video">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>140</y>
+       <width>950</width>
+       <height>145</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Compression</string>
+     </property>
+
+     <widget class="QLabel" name="label_fps">
+      <property name="geometry">
+       <rect>
+        <x>45</x>
+        <y>25</y>
+        <width>40</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>FPS</string>
+      </property>
+     </widget>
+
+     <widget class="QTextEdit" name="textEdit_fps">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>20</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML&gt;&lt;html&gt;&lt;body&gt;&lt;p&gt;20&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+
+     <widget class="QLabel" name="label_width">
+      <property name="geometry">
+       <rect>
+        <x>45</x>
+        <y>60</y>
+        <width>45</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Width</string>
+      </property>
+     </widget>
+
+     <widget class="QTextEdit" name="textEdit_width">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>55</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML&gt;&lt;html&gt;&lt;body&gt;&lt;p&gt;256&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+
+     <widget class="QLabel" name="label_height">
+      <property name="geometry">
+       <rect>
+        <x>45</x>
+        <y>95</y>
+        <width>45</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Height</string>
+      </property>
+     </widget>
+
+     <widget class="QTextEdit" name="textEdit_height">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>90</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML&gt;&lt;html&gt;&lt;body&gt;&lt;p&gt;256&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+
+     <widget class="QLabel" name="label_codec">
+      <property name="geometry">
+       <rect>
+        <x>155</x>
+        <y>62</y>
+        <width>45</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Codec</string>
+      </property>
+     </widget>
+
+     <widget class="QListWidget" name="list_codec">
+      <property name="geometry">
+       <rect>
+        <x>205</x>
+        <y>25</y>
+        <width>70</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>mp4v</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>MJPG</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>XVID</string>
+       </property>
+      </item>
+     </widget>
+
+     <widget class="QPushButton" name="btn_compress_video">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>110</y>
+        <width>100</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Compresser</string>
+      </property>
+     </widget>
+
+     <widget class="QLabel" name="title_video_results">
+      <property name="geometry">
+       <rect>
+        <x>405</x>
+        <y>25</y>
+        <width>230</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Caractéristiques après compression</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+
+     <widget class="QTextEdit" name="video_results">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>45</y>
+        <width>250</width>
+        <height>90</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+
+  </widget>
+
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
